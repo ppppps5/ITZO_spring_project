@@ -1,0 +1,297 @@
+* {   margin: 0;padding: 0}
+/* body {background: #f2f5f6;} */
+#wrap {width: 1200px; height: 1000px; margin:0 auto;  
+    color:#fff; text-align: center;}
+/* #logo { width:1200px; height: 80px;  }  */
+/*#nav { width:1200px; height: 100px;  }*/
+
+#contents {float: left; width:1200px; height: 800px;  background: #fff;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+#footer {border-top: 1px solid #dbdbdb; clear:both;}
+
+
+
+.notice_top {
+	width: 1200px;
+	height: 80px;
+	background-color: rgb(23, 22, 82);
+	border-radius: 15px 15px 0px 0px/15px 15px 0px 0px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.notice_middle {
+	width: 1200px;
+	height: 80px;
+	text-align: left;
+	margin-left: 100px;
+}
+
+.notice_bottom {
+	width: 1200px;
+	height: 620px;
+}
+
+.notice_list {
+	width: 1200px;
+	height: 500px;
+	text-align: left;
+}
+
+.notice_page {
+	width: 1200px;
+	height: 200px;
+}
+
+.c0 {
+	padding-left: 50px;
+}
+.c0 img {
+	margin:10px;
+}
+.c1 {
+	padding-left: 10px;
+}
+
+.c2 {
+	padding-left: 40px;
+}
+
+.c3 {
+	padding-left: 80px;
+}
+
+.c4 {
+	padding-left: 40px;
+}
+
+.align1 {
+	display: inline-block;
+	width: 50px;
+	text-align: left;
+}
+
+.align2 {
+	display: inline-block;
+	width: 600px;
+	text-align: left;
+}
+
+.align3 {
+	display: inline-block;
+	width: 80px;
+	margin-right: 100px;
+	float: right;
+}
+
+
+/* Style the tab */
+.tab {
+	float: left;
+	border: none;
+	width: 100%;
+	height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	display: block;
+	background-color: inherit;
+	color: #fff;
+	padding: 22px 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.tablinks {
+	color: #ddd;
+	background-color: rgb(23, 22, 82);
+	border-radius: 15px 0px 0px 0px/15px 0px 0px 0px;
+}
+
+.tablinks:hover {
+	background-color: rgb(30, 29, 78);
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+	color: #ccc;
+}
+
+.tablinks {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 16px;
+}
+
+.tabicon {
+	float: right;
+	color: #ccc;
+}
+
+
+.hidetab {
+	display: none;
+	font-size: 14px;
+}
+
+.hidetab p {
+	padding: 5px 15px 10px 5px;
+}
+
+.hidetab p:hover {
+	background-color: #30315a;
+}
+
+
+
+.notice_top p {
+	font-size: 40px;
+	text-align: left;
+	margin: 0 0 0 15px;
+	color: #f4f4f4;
+}
+
+.line {
+	color: #eee;
+	margin: 0px 60px 10px 60px;
+}
+
+.line2 {
+	border: 1px solid rgb(240, 240, 240);
+	margin: 10px 100px 5px 100px;
+}
+
+.line3 {
+	color: #eee;
+	margin: 10px 60px 10px 60px;
+}
+
+.search {
+	padding: 6px;
+	border: 1px solid rgb(226, 226, 226);
+	margin-top: 30px;
+	font-size: 15px;
+}
+
+.search_btn {
+	padding: 6px;
+	border: 0;
+	margin-top: 30px;
+	font-size: 15px;
+	background-color: rgb(23, 22, 82);
+	color: #fff;
+}
+
+.search_btn:hover {
+	background-color: #829ae9;
+	cursor: pointer;
+}
+
+.search:focus {
+	outline: 1px solid hsl(0, 0%, 81%);
+}
+
+.delete_btn {
+	border: 0;
+	margin-left: 700px;
+	padding: 5px 10px 5px 10px;
+	background-color: rgb(23, 22, 82);
+	color: #fff;
+}
+
+.delete_btn:hover {
+	background-color: rgb(39, 38, 114);
+	cursor: pointer;
+}
+
+.write_btn {
+	padding: 6px;
+	border: 0;
+	margin-top: 30px;
+	font-size: 15px;
+	background-color: rgb(23, 22, 82);
+	color: #fff;
+	margin-left: 600px;
+}
+
+.write_btn:hover {
+	background-color: #829ae9;
+	cursor: pointer;
+}
+
+/* .pagination {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.pagination a {
+  
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+} */
+
+.align1:hover {
+	text-decoration: underline #333;
+	cursor: pointer;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown_content {
+	display: none;
+	margin-left: 0;
+	margin-top: 0;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	z-index: 1;
+	text-align: left;
+}
+
+.dropdown_content a {
+	color: black;
+	padding: 2px 5px 2px 1px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown_content a:hover {
+	background-color: #ddd;
+}
+
+.pagination {
+	display: inline-block;
+	text-align: center;
+	margin: 30px;
+	/* margin-left: 450px; */
+}
+
+.pagination a {
+	border-radius: 5px;
+	color: black;
+	float: left;
+	padding: 8px 16px; 
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+}
+
+.pagination a.active {
+	border-radius: 5px;
+	background-color: rgb(23, 22, 82);
+	color: white;
+	border: 1px solid rgb(23, 22, 82);
+}
+
+.pagination a:hover:not (.active ) {
+	background-color: #ddd;
+}
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itzo.dao.AttDao">
+
+ <select id="selectAttList" resultType="AttDto">
+	<![CDATA[SELECT * FROM attendance where eseq=#{eseq} order by atseq]]>
+ </select>
+ 
+ <select id="selectAttConList" resultType="AttConDto">
+	<![CDATA[SELECT * FROM att_con where eseq=#{eseq}]]>
+ </select>
+ 
+ <insert id="attCome" >
+<![CDATA[insert into attendance values
+(att_seq.nextval,#{eseq},to_char(sysdate,'YYYY-MM-DD'),sysdate,null,'00:00',0,0,'출근')]]>
+</insert>
+
+<update id="attLeave">
+<![CDATA[
+update attendance set leave=sysdate,
+total1=(select trunc(to_number(sysdate-come)*24) from attendance where atseq=(select max(atseq) from attendance)) 
+where atseq=(select max(atseq) from attendance) and eseq=#{eseq}
+]]>
+</update>
+</mapper>
+

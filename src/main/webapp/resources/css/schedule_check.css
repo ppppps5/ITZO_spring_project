@@ -1,0 +1,31 @@
+* {   margin: 0;padding: 0}
+/* body {background: #f2f5f6;} */
+#wrap {width: 1200px; height: 1000px; margin:0 auto;  
+    color:#fff; text-align: center; text-transform: uppercase;}
+/* #logo { width:1200px; height: 80px;  }  */
+/*#nav { width:1200px; height: 100px;  }*/
+
+#contents {float: left; width:1200px; height: 800px;  background: #fff;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+#footer {border-top: 1px solid #dbdbdb;}
+
+
+.schedule_top{
+    width:1200px; 
+    height:80px; 
+    background-color:rgb(23, 22, 82) ;
+    border-radius: 15px 15px 0px 0px / 15px 15px 0px 0px;
+}
+.schedule_top p {
+    font-size: 40px; 
+    text-align: left;
+    margin: 0 0 0 15px; 
+    color: #f4f4f4;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*schedule_top p= 대메뉴 smenu= 소메뉴*/
+.schedule_top p {font-size: 40px; text-align: left;margin: 0 0 0 15px; color: #f4f4f4; width: 300px;float: left;}
+.smenu{ float: right; margin: 50px 20px 0 0; color: #fff; font-size: 14px;}
+.smenu a{color: #fff; cursor: pointer; }
+.smenu a:hover{color: rgb(193, 224, 253);}

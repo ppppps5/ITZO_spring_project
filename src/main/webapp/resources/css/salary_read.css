@@ -1,0 +1,30 @@
+table.salary {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    margin: 0 auto;
+  }
+  
+  table.salary thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: rgb(23, 22, 82);
+    border-bottom: 3px solid rgb(23, 22, 82);
+  }
+  
+  table.salary tbody th {
+    /* width: 150px; */
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+  }
+  
+  table.salary td {
+    width: 300px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }

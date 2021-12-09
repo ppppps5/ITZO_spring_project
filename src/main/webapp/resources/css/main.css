@@ -1,0 +1,470 @@
+
+* {   margin: 0;padding: 0}
+/* body {background: #f2f5f6;} */
+#wrap {width: 1200px; height: 1000px; margin:0 auto;  
+    color:#fff; text-align: center; }
+
+/*#nav { width:1200px; height: 100px;  }*/
+#contents {float: left; width:870px; height: 800px;  background: #fff;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+
+#side_right {float: left; width:310px; height: 350px; background: #fff; color:black; position: relative;
+margin-left: 20px;border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; margin-top: 90px;}
+input.logout {all: unset; position: absolute; margin-top:10px; right: 20px; font-size: 20px; cursor: pointer;}
+
+#side_right2 {float: left; width:310px; height: 440px; background: #fff; color:black;
+margin-left: 20px;border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; margin-top: 10px;}
+#footer {border-top: 1px solid #dbdbdb;}
+
+/* 프로필 사진 */
+.profile {
+	position: absolute; 
+    width: 150px;
+    height: 180px;
+	margin-left: 80px;
+}
+/* 출퇴근 버튼 */
+.attendance form{
+	position: absolute; 
+	display: inline-block;
+	width: 300px;
+	margin: 250px -150px;
+}
+input.on, input.off {cursor: pointer;}
+input.on:hover, input.off:hover {
+	cursor: pointer; 
+	background-color: rgb(42, 41, 105); 
+	opacity: 0.8;
+    transition: all .2s ease-in-out;
+}
+
+
+/* 게시판1 */
+.board1{position: relative; width: 380px; height: 220px;  float: left; margin:35px 17px 0 35px;
+  border: 1px solid #eeeeee; overflow: hidden;}
+.board1 ul li {width:250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;  text-align: left; margin: 10px 0 0 60px;}
+.indate {display:inline;margin-left:180px;}
+.board1 h4 {font-size: 16px; color: rgb(23, 22, 82); padding-bottom: 3px; font-weight: bold; margin-top: 5px;}
+.board1 ul li a {font-size: 12px; }
+.board1 a.more {position: absolute; right: 30px; top: 6px; display: block; width: 17px; height: 17px;}
+.board1 ul li span {float: right; margin-right: 70px; font-size:12px;}
+
+/* 게시판2 */
+.board2{position: relative;width: 380px; height: 220px;  float: left; margin:35px 35px 0 17px;
+    border: 1px solid #eeeeee; overflow: hidden;}
+.board2 ul li {width:250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;  text-align: left;  margin: 10px 0 0 60px;}
+.board2 h4 {font-size: 16px; color: rgb(23, 22, 82); padding-bottom: 3px; font-weight: bold; margin-top: 5px;}
+.board2 ul li a {font-size: 12px;}
+.board2 a.more {position: absolute; right: 30px; top: 6px; display: block; width: 17px; height: 17px;}
+.board2 ul li span {float: right; margin-right: 70px; font-size:12px;} 
+
+.board_hr{border: 1px solid #1A252F; margin: 5px 30px 5px 30px;}
+.board_hr2{border: 1px solid #eeeeee; margin: 2px 50px 2px 50px;}
+/* Change background color of buttons on hover */
+
+.on, .off {border:none; background-color: rgb(23, 22, 82); color: #fff; 
+            padding:10px 20px 10px 20px; margin: 2px;
+            border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px; font-size: 18px;}
+.attendance{margin-top: 20px;}
+.logo {text-align: left; margin:0 0 0 15px; padding-top: 100px;}
+
+
+
+.hidetab{display:none; font-size: 14px; }
+.hidetab p { padding: 5px 15px 10px 5px;}
+.hidetab p:hover{background-color: #30315a;}
+
+
+
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  a {
+    color: #000;
+  }
+  
+  /* header */
+  .header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 470px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+
+  /* footer */
+.footer {text-align: center; padding: 30px 50px;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li::before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb;
+    position: absolute; left: 0; top: 2px;}
+.footer li:first-child::before {width: 0;}
+.footer address {padding-top: 15px;}
+
+
+
+/**/
+table.notice {
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+
+}
+
+table.notice thead th {
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: rgb(23, 22, 82);
+	border-bottom: 3px solid rgb(23, 22, 82);
+}
+
+table.notice tbody th {
+	width: 120px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	background: #f3f6f7;
+}
+
+table.notice td {
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
+
+/*alertbox*/
+.alertBox {
+    width: 260px;
+    height: 120px;
+	color: #000;
+    background-color: #dfe5e8;
+    margin-top: 20px;
+    margin-left: 7.5px;
+    margin-bottom: 8px;
+    padding: 0.01em 16px;
+    border-radius: 4px;
+    position: relative;
+    box-sizing: inherit;
+    display: block;
+    margin-left: 25px;
+}
+.alertBox p{
+  text-align: left;
+}
+.boxButton{
+    width: 35px;
+    height: 35px;
+    color: #000;
+    background-color: #becbd2;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    margin-right: -16px;
+    float: right;
+    padding-top: 8px;
+    cursor: pointer;
+}
+.boxButton:hover{
+  	opacity: 0.7;
+    transition: all .2s ease-in-out;
+}
+
+/*alertbox2*/
+.alertBox2 {
+	width: 260px;
+	height: 120px;
+	color: #000;
+    background-color: #e1f5fe;
+    margin-top: 20px;
+    margin-left: 7.5px;
+    margin-bottom: 8px;
+    padding: 0.01em 16px;
+    border-radius: 4px;
+    position: relative;
+    box-sizing: inherit;
+    display: block;
+    margin-left: 25px;
+}
+.alertBox2 p{
+  text-align: left;
+}
+.alertBox2 .boxButton{
+    width: 35px;
+    height: 35px;
+    color: #000;
+    background-color: #bbdefb;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    margin-right: -16px;
+    float: right;
+    padding-top: 8px;
+    cursor: pointer;
+}
+.alertBox2 .boxButton:hover{ 
+	opacity: 0.7;
+    transition: all .2s ease-in-out;
+}
+
+
+#output body, html {
+  margin: 0;
+  padding: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+#output html {
+  display: table;
+}
+
+#output body {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#output {
+  width: 260px;
+  height: 120px;
+  font-family: sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #607d8b;
+  border-radius: 8px;
+  margin: 20px 0 8px 25px;
+  padding-top: 10px;
+}
+
+.attendance form{
+	display: inline;
+}
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  width:700px;
+  height:400px;
+  position: relative;
+  margin: 30px auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev{
+	left: 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #000;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  background-color: #ccc5c5;
+  opacity:0.9;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}

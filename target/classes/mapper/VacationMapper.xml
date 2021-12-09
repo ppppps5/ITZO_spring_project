@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itzo.dao.VacationDao">
+
+<sql id='search'>
+	<if test="searchType!=null">
+		<if test="searchType == '제목'.toString()"> and title like '%'|| #{keyword}||'%' </if>
+	</if>
+</sql>	 
+ 
+<!-- 휴가신청현황확인  -->		
+<select id="VacationCheck" resultType="VacationDto">
+<![CDATA[select * from vacation where eseq=#{eseq} order by vseq desc]]>
+</select>
+
+
+
+<!-- 휴가신청서작성 -->
+<!-- <insert id="VacationWrite" >
+<![CDATA[INSERT INTO vacation values(vacation_seq.nextval,#{eseq},(select vkseq from vaca_kind where vkseq=8888),
+#{title},sysdate,sysdate,sysdate,#{vFile},#{result},#{writer},#{approval},#{content});
+)]]>
+</insert>
+ -->
+ 
+<!-- 휴가신청서작성 -->
+<insert id="VacationWrite" >
+<![CDATA[INSERT INTO vacation values(vacation_seq.nextval,#{eseq},#{title},
+(select vkseq from vaca_kind where vkseq=#{vkseq}),
+,sysdate,sysdate,sysdate,#{maxdate},'','검토중',(select name from employees where eseq=#{eseq}),
+#{approval},#{content})
+]]>
+</insert>
+
+
+<!-- 휴가신청서작성2 -->
+<insert id="VacationWrite2" >
+<![CDATA[insert all into vacation values(vacation_seq.nextval,#{eseq},#{title}
+,#{vkseq},sysdate,sysdate,(select maxdate from vaca_kind where vkseq=#{vkseq}),sysdate,'','검토중',(select name from employees where eseq=#{eseq}),
+#{approval},#{content})
+into Vacation_File(fullname, vseq) values (#{fullName},VACATION_SEQ.CURRVAL)
+select * from dual]]>
+</insert>
+
+<!-- 휴가 내용-->
+<select id="selectContent" resultType="VacationDto">
+<![CDATA[select * from vacation where vseq=#{vseq} and eseq=#{eseq}]]>
+</select>
+
+<!-- 휴가신청 내용 수정  -->
+<update id="VacationUpdate">
+<![CDATA[update vacation set vkseq=#{vkseq},title=#{title},content=#{content} where vseq=#{vseq} and eseq=#{eseq}]]>
+</update>
+<!-- 휴가신청 삭제 -->
+<delete id="VacationDelete">
+<![CDATA[delete vacation where vseq=#{vseq} and eseq=#{eseq}]]>
+</delete>
+
+<!-- 파일업로드 -->
+<select id="getFiles" resultType="string">
+<![CDATA[select fullname from vacation_file where vseq = #{vseq} ]]>
+</select>
+<delete id="deleteFile">
+<![CDATA[delete from vacation_file where fullName = #{fullName}]]>
+</delete>
+<delete id="deleteFileAll">
+<![CDATA[delete from vacation_file where vseq = #{vseq}]]>
+</delete>
+
+<select id="seq" resultType="ApproveDto">
+select VACATION_SEQ.NEXTVAL from dual
+</select>
+
+<insert id="addFile">
+<![CDATA[
+insert into vacation_file(fullname, vseq) values (#{fullName}, (select last_number from USER_SEQUENCES 
+where sequence_name=UPPER('vacation_veq')))]]>
+
+</insert>
+<!-- //파일업로드 --> 
+</mapper>

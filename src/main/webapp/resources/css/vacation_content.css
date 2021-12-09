@@ -1,0 +1,325 @@
+
+* {   margin: 0;padding: 0}
+/* body {background: #f2f5f6;} */
+#wrap {width: 1200px; height: 1100px; margin:0 auto;  
+    color:#fff; text-align: center; }
+#logo { width:1200px; height: 80px;  } 
+/*#nav { width:1200px; height: 100px;  }*/
+
+#contents {float: left; width:1200px; height: 800px;  background: #fff;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+.vacation_top{width:1200px; height:80px; background-color:rgb(23, 22, 82) ;
+  border-radius: 15px 15px 0px 0px / 15px 15px 0px 0px;font-family: 'Noto Sans KR', sans-serif;}
+/*approve_top p= 대메뉴 smenu= 소메뉴*/
+.vacation_top p {font-size: 40px; text-align: left;margin: 0 0 0 15px; color: #f4f4f4; width: 300px;float: left;}
+.smenu{ float: right; margin: 50px 20px 0 0; color: #fff; font-size: 14px;}
+.smenu a{color: #fff; cursor: pointer; }
+.smenu a:hover{color: rgb(193, 224, 253);}.approve_bottom{width:1200px; height:680px;}
+.vacation_bottom{width:1200px; height:720px;}
+.vacation_content {width:1000px; height:620px; margin:10px 100px 50px 100px; text-align: left;}
+.p1 {font-size: 16px;margin-left: 20px;margin-bottom: 10px;}
+.p2 {font-size: 14px;margin-left: 15px;}
+.p3 {font-size: 14px;margin-left: 15px;}
+.p4 {font-size: 13px;margin-left: 600px; color: #333;}
+.content_detail{width: 800px; height: 500px;}
+
+
+.c0 {padding-left: 110px;}
+.c1 {padding-left: 20px;}  
+.c2 {padding-left: 50px;}  
+.c3 {padding-left: 80px;}  
+.c4 {padding-left: 450px;}  
+/* #footer {clear:both; width:1200px; height: 120px; } */
+#footer {border-top: 1px solid #dbdbdb;}
+
+
+/* Style the tab */
+.tab {
+float: left;
+border: none;
+width: 100%;
+height: 300px;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+display: block;
+background-color: inherit;
+color: #fff;
+padding: 22px 16px;
+width: 100%;
+border: none;
+outline: none;
+text-align: left;
+cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.tablinks{
+color: #ddd;
+background-color:rgb(23, 22, 82);
+border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+}
+.tablinks:hover{
+    background-color: rgb(30, 29, 78);
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+color: #ccc;
+}
+.tablinks{font-family: 'Noto Sans KR', sans-serif; font-size: 16px;}
+.tabicon{float: right; color: #ccc;}
+.on, .off {border:none; background-color: rgb(57, 53, 105); color: #fff; 
+            padding:10px 20px 10px 20px;
+            border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px; font-size: 18px;}
+.attendance{margin-top: 20px;}
+.logo {text-align: left; margin:0 0 0 15px; padding-top: 100px;}
+
+
+#calendarForm{width:100%; height:50%;margin-left: 150px; margin-top: 10px;}
+.custom_calendar_table td {
+    text-align: center;
+}
+
+.custom_calendar_table thead.cal_date th {
+    font-size: 20px;
+    
+}
+
+.custom_calendar_table thead.cal_date th button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+}
+
+.custom_calendar_table thead.cal_week th {
+    background-color: #d3d2e0;
+    color: #fff;
+    font-size: 14px;
+}
+
+.custom_calendar_table tbody td {
+    cursor: pointer;
+}
+
+.custom_calendar_table tbody td:nth-child(1) {
+    color: red;
+}
+
+.custom_calendar_table tbody td:nth-child(7) {
+    color: #288CFF;
+}
+
+.custom_calendar_table tbody td.select_day {
+    background-color: #b7d6fa;
+    color: #fff;
+}
+.hidetab{display:none; font-size: 14px; }
+.hidetab p { padding: 5px 15px 10px 5px;}
+.hidetab p:hover{background-color: #30315a;}
+
+body {
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  
+  a {
+    color: #000;
+  }
+  
+  /* header */
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 470px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+
+  /* footer */
+.footer {text-align: center; padding: 30px 50px;color:black;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li::before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb;
+    position: absolute; left: 0; top: 2px;}
+.footer li:first-child::before {width: 0;}
+.footer address {padding-top: 15px;}
+
+
+.board_top p {font-size: 40px; text-align: left;margin: 0 0 0 15px; color: #f4f4f4;}
+.line {color: #eee; margin: 0px 60px 10px 60px;}
+.line2 {border:1px solid rgb(240, 240, 240); margin:10px 100px 5px 100px;}
+.line3 {color: #eee; margin: 10px 60px 10px 60px;}
+
+.search {
+  padding: 6px;
+  border:1px solid rgb(226, 226, 226);
+  margin-top: 30px;
+  font-size: 15px;
+  
+}
+.search2 {padding: 6px ;
+  border:1px solid rgb(226, 226, 226);
+  margin-top: 30px;
+  font-size: 15px;}
+.search:focus {outline:1px solid hsl(0, 0%, 81%);}
+
+.btn {text-align: left;}
+/* 이전 글 */
+.prev_btn {border: 0; padding: 5px 10px 5px 10px; background-color: #adbcee; margin-left: 100px; margin-top: 10px; color: #fff;}
+.prev_btn:hover {background-color: #829ae9; cursor: pointer;}
+
+/* 다음 글 */
+.next_btn {border: 0; padding: 5px 10px 5px 10px; background-color: #adbcee;margin-left: 10px; margin-top: 10px;color: #fff;}
+.next_btn:hover {background-color: #829ae9; cursor: pointer;}
+
+/* 목록으로 */
+.list_btn {border: 0; padding: 5px 10px 5px 10px; background-color: #adbcee;margin-left: 10px; margin-top: 10px;color: #fff;}
+.list_btn:hover {background-color: #829ae9; cursor: pointer;}
+
+/* 수정 */
+.update_btn {border: 0; padding: 5px 10px 5px 10px; background-color: #adbcee; margin-top: 10px; color: #fff;}
+.update_btn:hover {background-color: #829ae9; cursor: pointer;}
+ 
+/* 삭제 */
+.delete_btn {border: 0; padding: 5px 10px 5px 10px; background-color: #adbcee; margin-top: 10px; color: #fff;}
+.delete_btn:hover {background-color: #829ae9; cursor: pointer;}
+
+/* 댓글 작성 */
+.reply_btn {border:0; height:50px; padding:5px 10px 5px 10px; background-color: #2a3277; color:#fff; font-size: 15px; float:right; margin-top: 5px; margin-bottom: 5px;}
+.reply_btn:hover{background-color:#1f276b; cursor: pointer;}
+.pagination {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+

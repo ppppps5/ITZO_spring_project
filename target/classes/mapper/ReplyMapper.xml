@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itzo.dao.ReplyDao">
+	<select id="list" resultType="ReplyDto">
+		select
+		*
+		from
+		reply
+		where bseq =
+		#{bseq}
+		order by rseq desc
+	</select>
+	<insert id="insert">
+		insert into reply (rseq, bseq, replytext, replyer)
+		values (reply_seq.nextval, #{bseq},#{replytext},#{replyer})
+	</insert>
+
+	<update id="update">
+		update reply set replytext = #{replytext},
+		updatedate
+		= sysdate
+		where rseq = #{rseq}
+	</update>
+
+	<delete id="delete">
+		delete from reply where rseq =#{rseq}
+	</delete>
+
+	<select id="listPage" resultType="ReplyDto">
+		<![CDATA[
+		select
+		rseq, bseq, replytext, replyer, indate, updatedate
+		from
+		(
+		select /*+INDEX_DESC(reply pk_reply))*/
+		rownum rn, rseq, bseq, replytext, replyer, indate, updatedate
+		from reply
+		where bseq = #{bseq}
+		and rseq > 0
+		and rownum <= #{pm.page} * #{pm.perPageNum}
+		)
+		where rn > ( #{pm.page} -1) * #{pm.perPageNum}
+		]]>
+	</select>
+	<select id="count" resultType="int">
+ <![CDATA[
+ select 
+   count(bseq) 
+ from 
+   reply 
+ where 
+   bseq =#{bseq} 
+ ]]>
+	</select>
+</mapper>

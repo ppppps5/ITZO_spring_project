@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itzo.dao.MailDao">
+		
+<sql id='search'>
+	<if test="pm.searchType!=null">
+		<if test="pm.searchType == '제목'.toString()"> and title like '%'|| #{pm.keyword}||'%' </if>
+	</if>
+</sql>	 	
+		
+	
+<!-- 받은 메일 -->		
+<select id="selectReceivelist" resultType="com.itzo.dto.MailDto">
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from mailbox where trans='수신' and remove='n' and eseq=#{eseq} ]]>
+<include refid="search"/>
+<![CDATA[
+order by mseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+  <!-- <![CDATA[SELECT * FROM mailbox where trans='수신' and remove='n'  and eseq=#{eseq}]]> -->
+</select>	
+
+	<!--selectReceivelist 서치+페이징 카운트 -->
+<select id="ReceiveCount" resultType="int">
+<![CDATA[select count(mseq) mCount from mailbox where trans='수신' 
+and remove='n' and eseq=#{eseq}  ]]> <include refid="search"/>
+</select>	
+
+	
+<!-- 보낸 메일 -->
+<select id="selectSendlist" resultType="MailDto">
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from mailbox where trans='송신' and remove='n' and eseq=#{eseq} ]]>
+<include refid="search"/>
+<![CDATA[
+order by mseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+
+</select>		
+
+	<!--selectSendlist 서치+페이징 카운트 -->
+<select id="SendCount" resultType="int">
+<![CDATA[select count(mseq) mCount from mailbox where trans='송신' 
+and remove='n' and eseq=#{eseq} ]]> <include refid="search"/>
+</select>	
+
+
+ <!-- 삭제 메일 -->
+<select id="selectDeletelist" resultType="MailDto">
+<!-- <![CDATA[SELECT * FROM mailbox where remove='y' and eseq=#{eseq}]]>	 -->
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from mailbox where remove='y'  and eseq=#{eseq} ]]>
+<include refid="search"/>
+<![CDATA[
+order by mseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+</select>
+
+	<!--selectDeletelist 서치+페이징 카운트 -->
+<select id="DeleteCount" resultType="int">
+<![CDATA[select count(mseq) mCount from mailbox where remove='y' 
+ and eseq=#{eseq}  ]]> <include refid="search"/>
+</select>
+
+
+<!-- 중요 메일 -->
+<select id="selectImportantlist" resultType="MailDto">
+<!-- <![CDATA[SELECT * FROM mailbox where imp='y' and eseq=#{eseq}]]>	 -->
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from mailbox where imp='y'and remove='n' and eseq=#{eseq} ]]>
+<include refid="search"/>
+<![CDATA[
+order by mseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+
+<!-- <![CDATA[SELECT * FROM mailbox where imp='y' and remove='n' and eseq=5555]]> -->	
+
+</select>
+
+	<!--selectImportantlist 서치+페이징 카운트 -->
+<select id="ImportantCount" resultType="int">
+<![CDATA[select count(mseq) mCount from mailbox where imp='y' and remove='n' 
+ and eseq=#{eseq} ]]> <include refid="search"/>
+</select>
+
+
+
+ 
+<!-- 메일 내용-->
+<select id="selectContent" resultType="MailDto">
+<![CDATA[select * from mailbox where mseq=#{mseq} and eseq=#{eseq}]]>
+</select>
+
+<!-- 메일 답장(대상 메일 불러오기) -->
+<select id="reply" resultType="MailDto">
+<![CDATA[SELECT * FROM mailbox where trans='수신' and mseq=#{mseq} and eseq=#{eseq}]]> 
+</select>
+ 
+  <!-- 메일보내는 대상 불러오기 -->
+<select id="gomail" resultType="MailDto">
+<![CDATA[SELECT sender FROM mail where mseq=#{mseq} eseq=#{eseq}]]> 
+</select>
+
+ <!-- 메일 보내기 (write/reply)-->
+ <insert id="mailwrite" >
+<!-- <![CDATA[insert all
+into mailbox values(mail_seq.nextval,#{eseq},(select name from employees where eseq=#{eseq})
+,(select email from employees where eseq=#{eseq}),(select email from employees where eseq=#{eseq}),
+(select name from employees where email='#{receiver}'),#{receiver},#{title},#{content}
+,#{mFile},sysdate,'n','송신','n')
+into mailbox values(mail_seq.nextval,(select eseq from employees where email='#{receiver}'),(select name from employees where eseq=#{eseq})
+,#{receiver},(select email from employees where eseq=#{eseq}),(select name from employees where email='#{receiver}'),#{receiver},#{title},#{content}
+,#{mFile},sysdate,'n','수신','n')
+select * from dual;]]> -->
+<![CDATA[insert all
+into mailbox values(mail_seq.nextval,#{eseq},(select name from employees where eseq=#{eseq})
+,(select email from employees where eseq=#{eseq}),(select name from employees where eseq=#{eseq})
+,(select email from employees where eseq=#{eseq}),
+(select name from employees where email=#{receiver}),#{receiver},#{title},#{content}
+,'',sysdate,'n','송신','n')
+into mailbox values(mail_seq.nextval,(select eseq from employees where email=#{receiver}),(select name from employees where eseq=#{eseq})
+,#{receiver},(select name from employees where eseq=#{eseq}),(select email from employees where eseq=#{eseq})
+,(select name from employees where email=#{receiver}),#{receiver},#{title},#{content}
+,'',sysdate,'n','수신','n')
+select * from dual]]>
+
+</insert>
+<insert id="mailwrite2" >
+<!-- <![CDATA[insert all
+into mailbox values(mail_seq.nextval,#{eseq},(select name from employees where eseq=#{eseq})
+,(select email from employees where eseq=#{eseq}),(select email from employees where eseq=#{eseq}),
+(select name from employees where email='#{receiver}'),#{receiver},#{title},#{content}
+,#{mFile},sysdate,'n','송신','n')
+into mailbox values(mail_seq.nextval,(select eseq from employees where email='#{receiver}'),(select name from employees where eseq=#{eseq})
+,#{receiver},(select email from employees where eseq=#{eseq}),(select name from employees where email='#{receiver}'),#{receiver},#{title},#{content}
+,#{mFile},sysdate,'n','수신','n')
+select * from dual;]]> -->
+<![CDATA[insert all
+into mailbox values(mail_seq.nextval,#{eseq},(select name from employees where eseq=#{eseq})
+,(select email from employees where eseq=#{eseq}),(select name from employees where eseq=#{eseq})
+,(select email from employees where eseq=#{eseq}),
+(select name from employees where email=#{receiver}),#{receiver},#{title},#{content}
+,'',sysdate,'n','송신','n')
+into mailbox values(mail_seq.nextval,(select eseq from employees where email=#{receiver}),(select name from employees where eseq=#{eseq})
+,#{receiver},(select name from employees where eseq=#{eseq}),(select email from employees where eseq=#{eseq})
+,(select name from employees where email=#{receiver}),#{receiver},#{title},#{content}
+,'',sysdate,'n','수신','n')
+into mail_file(fullname, mseq) values (#{fullName},MAIL_SEQ.CURRVAL)
+select * from dual]]>
+
+</insert>
+
+
+
+
+<!-- 메일 삭제함으로 이동 -->
+<update id="maildelete">
+<![CDATA[
+update mailbox set remove ='y' where mseq=#{mseq} and eseq=#{eseq}
+]]>
+</update>
+
+<!-- 중요메일 표시(별) -->
+<update id="starOn">
+<![CDATA[
+update mailbox set imp ='y' where mseq=#{mseq}]]>
+</update>
+
+<!-- 중요메일 해제(별) -->
+<update id="starOff">
+<![CDATA[
+update mailbox set imp ='n' where mseq=#{mseq}
+]]>
+</update>
+
+<!-- 메일 영구삭제 -->
+<delete id="realdelete">
+<![CDATA[
+delete mailbox where mseq=#{mseq} and eseq=#{eseq}
+]]>
+</delete>
+
+
+<!-- 파일업로드 -->
+<select id="getFiles" resultType="string">
+<![CDATA[select fullname from mail_file where mseq = #{mseq} order by indate]]>
+</select>
+<delete id="deleteFile">
+<![CDATA[delete from mail_file where fullName = #{fullName}]]>
+</delete>
+<delete id="deleteFileAll">
+<![CDATA[delete from mail_file where mseq = #{mseq}]]>
+</delete>
+
+<select id="seq" resultType="MailDto">
+select MAIL_SEQ.NEXTVAL from dual
+</select>
+
+<insert id="addFile">
+<![CDATA[
+insert into mail_file(fullname, mseq) values (#{fullName}, (select last_number from USER_SEQUENCES 
+where sequence_name=UPPER('mail_seq')))]]>
+
+</insert>
+<!-- //파일업로드 -->
+
+
+
+<!-- 주소록추가 -->
+<insert id="addAddress">
+<![CDATA[insert into add_book values (#{eseq},
+(select name from employees where email=#{sender}),#{sender},
+(select position from employees where email=#{sender}))]]>
+</insert>
+
+<!-- 주소록 불러오기 -->
+<select id="selectAddressBook" resultType="AddBookDto">
+<![CDATA[select * from add_book where eseq=#{eseq}]]>
+</select>
+
+
+
+		
+</mapper>

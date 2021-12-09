@@ -1,0 +1,38 @@
+* {margin: 0;padding: 0;}
+#footer {
+    font-size: 13px;
+}
+
+/* QR-Code */
+.qrcode-img {
+    box-shadow: 0 0 8px #c6c4ce;
+}
+
+.login-msg.error {
+border-color: rgb(220, 236, 255);
+background-color: #fef2f2;
+color: #6C6C6C;
+}
+
+.login-msg {
+line-height: 16px;
+padding: 6px 10px;
+overflow: hidden;
+width: 278px;
+background: #fef2f2;
+border: 1px solid;
+}
+
+#header {
+padding: 22px 0;
+height: 88px;
+box-sizing: border-box;
+}
+
+/* footer */
+.footer {text-align: center; padding: 30px 50px; margin-top: 80px;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li::before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb;
+    position: absolute; left: 0; top: 2px;}
+.footer li:first-child::before {width: 0;}
+.footer address {padding-top: 15px;}

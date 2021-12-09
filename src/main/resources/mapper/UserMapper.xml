@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itzo.dao.EmployeesDao">
+
+<insert id="insertUser" >
+<![CDATA[
+insert into employees(eseq, name, pwd, position, email, phone, resinum, 
+address, salary, dseq) values(#{eseq}, #{name}, #{pwd}, 
+#{position}, #{email}, #{phone}, #{resinum}, #{address}, 
+#{salary}, #{dseq})
+]]>        
+</insert>
+
+<select id="selectEmpImg" resultType="EmpImgDto">
+<![CDATA[
+select e.name,e.position,ei.img,e.dseq from 
+employees e,emp_img ei where e.eseq=ei.eseq and e.eseq=#{eseq}
+]]>
+</select>
+   
+   
+</mapper>

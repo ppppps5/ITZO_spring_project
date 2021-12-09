@@ -1,0 +1,66 @@
+* {margin: 0;padding: 0}
+/* body {background: #f2f5f6;} */
+#wrap {width: 1200px; height: 1000px; margin:0 auto;  
+    color:#fff; text-align: center; }
+#logo { width:1200px; height: 65px;  } 
+/*#nav { width:1200px; height: 100px;  }*/
+
+#contents {float: left; width:1200px; height: 800px;  background: #fff;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+.att_top{width:1200px; height:80px; background-color:rgb(23, 22, 82) ;
+  border-radius: 15px 15px 0px 0px / 15px 15px 0px 0px;font-family: 'Noto Sans KR', sans-serif;}
+.att_top p {font-size: 40px; text-align: left;margin: 0 0 0 15px; color: #f4f4f4;}
+.att_bottom{width:1200px;}
+
+th{width:150px; height: 30px; font-size: 16px;}
+td{border: 1px solid #eee; height:30px;}
+/* td{border-bottom: 1px solid #333;} */
+table{
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+.table1{margin-bottom: 30px;  margin-top: 30px;}
+.table2{ overflow: scroll;	overflow-x: hidden; width: 1000px;	height: 400px; margin-left: 100px; margin-right: 100px;}
+.select{margin: 30px 0 10px 120px; text-align: left;}
+
+
+
+/* #footer {clear:both; width:1200px; height: 120px; } */
+#footer {border-top: 1px solid #dbdbdb;}
+
+.logo {text-align: left; margin:0 0 0 15px; padding-top: 100px;}
+
+
+
+.hidetab{display:none; font-size: 14px; }
+.hidetab p { padding: 5px 15px 10px 5px;}
+.hidetab p:hover{background-color: #30315a;}
+
+
+
+  /* footer */
+.footer {text-align: center; padding: 30px 50px;color:black;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li::before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb;
+    position: absolute; left: 0; top: 2px;}
+.footer li:first-child::before {width: 0;}
+.footer address {padding-top: 15px;}
+
+
+
+.line {color: #eee; margin: 0px 60px 10px 60px;}
+.line2 {border:1px solid rgb(240, 240, 240); margin:10px 100px 5px 100px;}
+.line3 {color: #eee; margin: 10px 60px 10px 60px;}
+
+.search {
+  padding: 6px;
+  border:1px solid rgb(226, 226, 226);
+  margin-top: 30px;
+  font-size: 15px;
+  
+}
+.search2 {padding: 6px ;
+  border:1px solid rgb(226, 226, 226);
+  margin-top: 30px;
+  font-size: 15px;}
+.search:focus {outline:1px solid hsl(0, 0%, 81%);}

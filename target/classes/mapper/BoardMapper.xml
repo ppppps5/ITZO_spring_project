@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itzo.dao.BoardDao">
+
+<sql id='search'>
+	<if test="pm.searchType!=null">
+		<if test="pm.searchType == 't'.toString()"> and bTitle like '%'|| #{pm.keyword}||'%' </if>
+		<if test="pm.searchType == 'c'.toString()"> and bContent like '%'|| #{pm.keyword}||'%' </if>
+	</if>
+</sql>
+
+
+	<!-- 게시판 목록 불러오기 -->
+<select id="listSearchCriteria"	resultType="com.itzo.dto.BoardDto">
+				<![CDATA[select bseq, bTitle, bContent, bWriter, indate  from
+			(select /*+INDEX_DESC(board,pk_board)*/ 
+			rownum rn,bseq,bTitle,bContent,bWriter,indate
+			from board where dseq=(select dseq from employees where eseq=#{eseq}) ]]>
+		<include refid="search" />
+		<![CDATA[ and rownum <= #{pm.page} * #{pm.perPageNum} and bseq > 0 ) 
+			where rn >= (#{pm.page} -1) * #{pm.perPageNum}+1 order by bseq desc]]>
+	</select>
+	
+	<!-- 게시판 검색+페이징 카운트 -->
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[ select count(bseq) from board where dseq=(select dseq from employees where eseq=#{eseq}) ]]>
+		<include refid="search" />
+		<![CDATA[ and bseq > 0 ]]>
+	</select>
+	
+	<!-- 게시판 내용 읽어오기 -->
+	<select id="content" resultType="BoardDto">
+	<![CDATA[SELECT * FROM board where dseq=(select dseq from employees where eseq=#{eseq}) and bseq=#{bseq}]]>
+	</select>
+	
+	
+	<!-- 게시판 수정 -->
+	<update id="update">
+	<![CDATA[update board set bTitle=#{bTitle},bContent=#{bContent}
+		where bseq=#{bseq} and eseq=#{eseq}]]>
+	</update>
+	
+	<!-- 게시판 작성 -->
+	<insert id="write2" parameterType="com.itzo.dto.BoardDto">
+		insert into board(bseq, eseq, name, bWriter, bTitle, bContent, indate, dseq)
+		values (board_seq.nextval,#{eseq}, (select name from employees where eseq=#{eseq}), #{bWriter},#{bTitle},#{bContent}, sysdate, (select dseq from employees where eseq=#{eseq}))
+	</insert>
+	
+	<!-- 게시판 삭제 -->
+	<delete id="delete">
+		delete board where bseq=#{bseq} and eseq=#{eseq}
+	</delete>
+
+	
+	<!-- 메인에 게시판 불러오기 -->
+	<select id="mainBoardlist" resultType="BoardDto">
+	<![CDATA[select * from(select rownum rnum,A.* from 
+	(SELECT * FROM board where dseq=(select dseq from employees where eseq=#{eseq}) order by bseq desc) A) 
+	where rnum<6]]>
+	</select>
+
+</mapper>

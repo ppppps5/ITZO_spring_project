@@ -1,0 +1,357 @@
+* {
+	margin: 0;
+	padding: 0
+}
+/* body {background: #f2f5f6;} */
+#wrap {
+	width: 1200px;
+	height: 1000px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+}
+
+#logo {
+	width: 1200px;
+	height: 80px;
+}
+/*#nav { width:1200px; height: 100px;  }*/
+#contents {
+	float: left;
+	width: 1200px;
+	height: 800px;
+	background: #fff;
+	border-radius: 15px 15px 15px 15px/15px 15px 15px 15px;
+	color: black;
+	margin-top: 90px;
+}
+
+.salary_top {
+	width: 1200px;
+	height: 80px;
+	background-color: rgb(23, 22, 82);
+	border-radius: 15px 15px 0px 0px/15px 15px 0px 0px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.salary_bottom {
+	width: 1200px;
+	height: 720px;
+}
+
+.salary_content {
+	width: 1000px;
+	height: 620px;
+	margin: 10px 100px 50px 100px;
+	text-align: left;
+}
+
+.p1 {
+	font-size: 16px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.p2 {
+	font-size: 14px;
+	margin-left: 15px;
+}
+
+.p3 {
+	font-size: 14px;
+	margin-left: 15px;
+}
+
+.p4 {
+	font-size: 13px;
+	margin-left: 600px;
+	color: #333;
+}
+
+.content_detail {
+	width: 800px;
+	height: 500px;
+}
+
+.c0 {
+	padding-left: 110px;
+}
+
+.c1 {
+	padding-left: 20px;
+}
+
+.c2 {
+	padding-left: 50px;
+}
+
+.c3 {
+	padding-left: 80px;
+}
+
+.c4 {
+	padding-left: 450px;
+}
+
+table.salary {
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+	margin: 0 auto;
+}
+
+table.salary thead th {
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: rgb(23, 22, 82);
+	border-bottom: 3px solid rgb(23, 22, 82);
+}
+
+table.salary tbody th {
+	/* width: 150px; */
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	background: #f3f6f7;
+}
+
+table.salary td {
+	width: 300px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
+
+/* #footer {clear:both; width:1200px; height: 120px; } */
+#footer {
+	border-top: 1px solid #dbdbdb;
+}
+
+/* Style the tab */
+.tab {
+	float: left;
+	border: none;
+	width: 100%;
+	height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	display: block;
+	background-color: inherit;
+	color: #fff;
+	padding: 22px 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.tablinks {
+	color: #ddd;
+	background-color: rgb(23, 22, 82);
+	border-radius: 15px 0px 0px 0px/15px 0px 0px 0px;
+}
+
+.tablinks:hover {
+	background-color: rgb(30, 29, 78);
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+	color: #ccc;
+}
+
+.tablinks {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 16px;
+}
+
+.tabicon {
+	float: right;
+	color: #ccc;
+}
+
+.on, .off {
+	border: none;
+	background-color: rgb(57, 53, 105);
+	color: #fff;
+	padding: 10px 20px 10px 20px;
+	border-radius: 10px 10px 10px 10px/10px 10px 10px 10px;
+	font-size: 18px;
+}
+
+.attendance {
+	margin-top: 20px;
+}
+
+.logo {
+	text-align: left;
+	margin: 0 0 0 15px;
+	padding-top: 100px;
+}
+
+#calendarForm {
+	width: 100%;
+	height: 50%;
+	margin-left: 150px;
+	margin-top: 10px;
+}
+
+.custom_calendar_table td {
+	text-align: center;
+}
+
+.custom_calendar_table thead.cal_date th {
+	font-size: 20px;
+}
+
+.custom_calendar_table thead.cal_date th button {
+	font-size: 1.5rem;
+	background: none;
+	border: none;
+}
+
+.custom_calendar_table thead.cal_week th {
+	background-color: #d3d2e0;
+	color: #fff;
+	font-size: 14px;
+}
+
+.custom_calendar_table tbody td {
+	cursor: pointer;
+}
+
+.custom_calendar_table tbody td:nth-child(1) {
+	color: red;
+}
+
+.custom_calendar_table tbody td:nth-child(7) {
+	color: #288CFF;
+}
+
+.custom_calendar_table tbody td.select_day {
+	background-color: #b7d6fa;
+	color: #fff;
+}
+
+.hidetab {
+	display: none;
+	font-size: 14px;
+}
+
+.hidetab p {
+	padding: 5px 15px 10px 5px;
+}
+
+.hidetab p:hover {
+	background-color: #30315a;
+}
+
+
+/* footer */
+.footer {
+	text-align: center;
+	padding: 30px 50px;
+	color: black;
+}
+
+.footer li {
+	position: relative;
+	display: inline;
+	padding: 0 7px 0 10px;
+	white-space: nowrap;
+}
+
+.footer li::before {
+	content: '';
+	width: 1px;
+	height: 12px;
+	background-color: #dbdbdb;
+	position: absolute;
+	left: 0;
+	top: 2px;
+}
+
+.footer li:first-child::before {
+	width: 0;
+}
+
+.footer address {
+	padding-top: 15px;
+}
+
+.salary_top p {
+	font-size: 40px;
+	text-align: left;
+	margin: 0 0 0 15px;
+	color: #f4f4f4;
+}
+
+.line {
+	color: #eee;
+	margin: 0px 60px 10px 60px;
+}
+
+.line2 {
+	border: 1px solid rgb(240, 240, 240);
+	margin: 10px 100px 5px 100px;
+}
+
+.line3 {
+	color: #eee;
+	margin: 10px 60px 10px 60px;
+}
+
+.search {
+	padding: 6px;
+	border: 1px solid rgb(226, 226, 226);
+	margin-top: 30px;
+	font-size: 15px;
+}
+
+.search2 {
+	padding: 6px;
+	border: 1px solid rgb(226, 226, 226);
+	margin-top: 30px;
+	font-size: 15px;
+}
+
+.search:focus {
+	outline: 1px solid hsl(0, 0%, 81%);
+}
+
+.btn {
+	text-align: left;
+}
+
+/* 목록으로 */
+.list_btn {
+	border: 0;
+	padding: 5px 10px 5px 10px;
+	background-color: rgb(23, 22, 82);
+	margin-left: 1030px;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.list_btn:hover {
+	background-color: #829ae9;
+	cursor: pointer;
+}
+
+.pagination {
+	display: inline-block;
+	font-size: 16px;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}

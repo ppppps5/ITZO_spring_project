@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itzo.dao.NoticeDao">
+	<insert id="write2" parameterType="com.itzo.dto.NoticeDto">
+		insert into notice(nseq,nWriter,nTitle,nContent)
+		values (notice_seq.nextval,#{nWriter},#{nTitle},#{nContent})
+	</insert>
+	
+	<select id="read" resultType="NoticeDto">
+	select * from notice where nseq=#{nseq}
+	</select>
+	
+	<update id="update">
+		update notice set nTitle=#{nTitle},nContent=#{nContent}
+		where nseq=#{nseq}
+	</update>
+	
+	<delete id="delete">
+		delete from notice where nseq=#{nseq}
+	</delete>
+
+	<sql id='search'>
+		<if test="searchType!=null">
+			<if test="searchType == 't'.toString()"> and nTitle like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'c'.toString()"> and nContent like '%'|| #{keyword}||'%' </if>
+		</if>
+	</sql>
+
+	<select id="listSearchCriteria"	resultType="com.itzo.dto.NoticeDto">
+		<![CDATA[select nseq, nTitle, nContent, nWriter, indate from
+			(select /*+INDEX_DESC(notice,pk_Notice)*/ 
+			rownum rn,nseq,nTitle,nContent,nWriter,indate
+			from notice where 1=1  ]]>
+		<include refid="search" />
+		<![CDATA[ and rownum <= #{page} * #{perPageNum} and nseq > 0 ) 
+			where rn > (#{page} -1) * #{perPageNum} order by nseq desc]]>
+	</select>
+
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[ select count(nseq) from notice where 1=1 ]]>
+		<include refid="search" />
+		<![CDATA[ and nseq > 0 ]]>
+	</select>
+
+<select id="mainNoticelist" resultType="NoticeDto">
+<![CDATA[select * from(select rownum rnum,A.* from (select * from notice order by nseq desc) A) where rnum<6]]>
+</select>
+
+</mapper>

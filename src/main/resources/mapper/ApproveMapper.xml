@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itzo.dao.ApproveDao">
+
+<sql id='search'>
+	<if test="pm.searchType!=null">
+		<if test="pm.searchType == '제목'.toString()"> and title like '%'|| #{pm.keyword}||'%' </if>
+	</if>
+</sql>
+
+<!-- 결재거절(기결함) -->		
+<select id="ApproveCancle" resultType="ApproveDto">
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from approve where eseq=#{eseq} and state='기결']]>
+<include refid="search"/>
+<![CDATA[
+order by aseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+</select>
+
+<!--selectNoticelist 서치+페이징 카운트 -->
+<select id="CancleCount" resultType="int">
+<![CDATA[select count(aseq) aCount from approve where eseq=#{eseq} ]]>
+<include refid="search"/>
+</select>
+ 
+<!-- 결재요청(미결함) -->		 
+<select id="ApproveDecide" resultType="ApproveDto">
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from approve where eseq=#{eseq} and state='미결']]>
+<include refid="search"/>
+<![CDATA[
+order by aseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+</select>
+
+<!--selectNoticelist 서치+페이징 카운트 -->
+<select id="DecideCount" resultType="int">
+<![CDATA[select count(aseq) aCount from approve where eseq=#{eseq} ]]>
+<include refid="search"/>
+</select>	
+
+<!-- 결재개인문서함 -->		
+<select id="ApproveEach" resultType="ApproveDto">
+<![CDATA[select * from
+(select rownum as rnum1,A.*from
+(select * from approve where eseq=#{eseq} and myapprove='y']]>
+<include refid="search"/>
+<![CDATA[
+order by aseq desc)A)
+where rnum1<=#{pm.page} * #{pm.perPageNum} 
+and rnum1>=(#{pm.page}-1)*#{pm.perPageNum}+1]]>
+</select>
+
+<!--selectNoticelist 서치+페이징 카운트 -->
+<select id="EachCount" resultType="int">
+<![CDATA[select count(aseq) aCount from approve where eseq=#{eseq} ]]>
+<include refid="search"/>
+</select>
+
+<!-- 결재작성(기안문작성) -->		
+<insert id="ApproveWrite">
+<![CDATA[INSERT INTO approve values(approve_seq.nextval,#{eseq},#{title},
+#{content},#{approval},(select dseq from employees where eseq=#{eseq}),
+(select position from employees where eseq=#{eseq}),sysdate,'','n',(select dname from department 
+where dseq=(select dseq from employees where eseq=#{eseq})),(select name from employees where eseq=#{eseq}),'미결')
+]]>
+</insert>
+
+<!-- 결재작성2(기안문작성2) -->		
+<insert id="ApproveWrite2">
+<![CDATA[insert all into approve values(approve_seq.nextval,#{eseq},#{title},
+#{content},#{approval},(select dseq from employees where eseq=#{eseq}),
+(select position from employees where eseq=#{eseq}),sysdate,'','n',(select dname from department 
+where dseq=(select dseq from employees where eseq=#{eseq})),(select name from employees where eseq=#{eseq}),'미결')
+into approve_file(fullname, aseq) values (#{fullName},APPROVE_SEQ.CURRVAL)
+select * from dual]]>
+</insert>
+
+<!-- 작성글 삭제 -->
+	<update id="ApproveDelete">
+<![CDATA[delete approve where aseq=#{aseq} and eseq=#{eseq}]]>
+	</update>
+
+<!-- 팀별결재현황(공통) -->		
+ <select id="Approve" resultType="ApproveDto">
+<![CDATA[select * from approve where eseq=#{eseq} and department=(select dname from department 
+where dseq=(select dseq from employees where eseq=#{eseq}))
+order by indate desc]]>
+</select>
+ 
+<!-- 팀별결재현황(개인) -->		
+ <select id="Approvem" resultType="ApproveDto">
+<![CDATA[select * from approve where eseq=#{eseq} and myapprove='y'
+order by indate desc]]>
+</select>
+ <!-- 중요메일 표시(별) -->
+<update id="starOn">
+<![CDATA[
+update approve set myapprove ='y' where aseq=#{aseq}]]>
+</update>
+
+<!-- 중요메일 해제(별) -->
+<update id="starOff">
+<![CDATA[
+update approve set myapprove ='n' where aseq=#{aseq}]]>
+</update>
+
+<!-- 결재 내용-->
+<select id="selectContent" resultType="ApproveDto">
+<![CDATA[select * from approve where aseq=#{aseq} and eseq=#{eseq}]]>
+</select>
+
+<!-- 미결함 결재 내용 수정  -->
+<update id="decideupdate">
+<![CDATA[update approve set title=#{title},content=#{content} where aseq=#{aseq} and eseq=#{eseq}]]>
+</update>
+
+<!-- 기결함 결재 내용 삭제  -->
+<delete id="cancledelete">
+<![CDATA[
+delete approve where aseq=#{aseq} and eseq=#{eseq}
+]]>
+</delete>
+
+<!-- 파일업로드 -->
+<select id="getFiles" resultType="string">
+<![CDATA[select fullname from approve_file where aseq = #{aseq} order by indate]]>
+</select>
+<delete id="deleteFile">
+<![CDATA[delete from approve_file where fullName = #{fullName}]]>
+</delete>
+<delete id="deleteFileAll">
+<![CDATA[delete from approve_file where aseq = #{aseq}]]>
+</delete>
+
+<select id="seq" resultType="ApproveDto">
+select APPROVE_SEQ.NEXTVAL from dual
+</select>
+
+<insert id="addFile">
+<![CDATA[
+insert into approve_file(fullname, aseq) values (#{fullName}, (select last_number from USER_SEQUENCES 
+where sequence_name=UPPER('approve_seq')))]]>
+
+</insert>
+<!-- //파일업로드 -->
+</mapper>
+ 

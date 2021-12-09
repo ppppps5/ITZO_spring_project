@@ -1,0 +1,342 @@
+* {   margin: 0;padding: 0}
+/* body {background: #f2f5f6;} */
+#wrap {width: 1200px; height: 1100px; margin:0 auto;  
+    color:#fff; text-align: center;}
+#logo { width:1200px; height: 80px;  } 
+/*#nav { width:1200px; height: 100px;  }*/
+#contents {float: left; width:1200px; height: 800px;  background: #fff;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+
+
+#contents {float: left; width:1200px; height: 800px;  background: #fff;
+  border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px; color:black; margin-top: 90px;}
+  
+#footer {border-top: 1px solid #dbdbdb;}
+
+
+.appr_top{width:1200px; height:80px; background-color:rgb(23, 22, 82) ;
+    border-radius: 15px 15px 0px 0px / 15px 15px 0px 0px; font-family: 'Noto Sans KR', sans-serif;}
+.appr_top p {font-size: 40px; text-align: left; margin: 0 0 0 15px; color: #f4f4f4; float: left;}
+.smenu{ float: right; margin: 50px 20px 0 0; color: #fff; font-size: 14px;}
+.smenu a{color: #fff; cursor: pointer; }
+.smenu a:hover{color: rgb(193, 224, 253);} 
+.appr_bottom{float:left; height:620px; margin-left: 100px; margin-right: 100px;}  */
+.appr_middle{width:1200px; height:80px; margin-left: 100px; margin-right: 100px;}  
+/* .elec_bottom{width:1200px; height:620px;} */
+.appr_depart{margin-left: 100px; text-align: left;}
+.appr_search{width:1200px; height:80px; text-align: left; margin-left: 100px;}  
+.appr_list{width:1200px; height: 500px; text-align: left; }
+.appr_page {width:1200px; height: 200px; }   
+
+
+th{width:150px; height: 30px; font-size: 16px;}
+td{border: 1px solid #eee; height:30px;}
+/* td{border-bottom: 1px solid #333;} */
+table{
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+.table1{margin-bottom: 30px;  margin-top: 30px; }
+
+.select{margin: 30px 0 30px 0;}
+.hidetab1{
+	height : 150px;
+	overflow: scroll;
+	overflow-x: hidden;
+	width: 1000px;
+	text-align: center;
+}
+.hidetab2{
+	height : 150px;
+	overflow: scroll;
+	overflow-x: hidden;
+	width: 1000px;
+	text-align: center;
+}
+
+
+/* #footer {clear:both; width:1200px; height: 120px; } */
+/* #footer {border-top: 1px solid #dbdbdb;} */
+
+/* Style the tab */
+.tab {
+float: left;
+border: none;
+width: 100%;
+height: 300px;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+display: block;
+background-color: inherit;
+color: #fff;
+padding: 22px 16px;
+width: 100%;
+border: none;
+outline: none;
+text-align: left;
+cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.tablinks{
+color: #ddd;
+background-color:rgb(23, 22, 82);
+border-radius: 15px 0px 0px 0px / 15px 0px 0px 0px;
+}
+.tablinks:hover{
+    background-color: rgb(30, 29, 78);
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+color: #ccc;
+}
+.tablinks{font-family: 'Noto Sans KR', sans-serif; font-size: 16px;}
+.tabicon{float: right; color: #ccc;}
+.on, .off {border:none; background-color: rgb(57, 53, 105); color: #fff; 
+            padding:10px 20px 10px 20px;
+            border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px; font-size: 18px;}
+.attendance{margin-top: 20px;}
+.logo {text-align: left; margin:0 0 0 15px; padding-top: 100px;}
+
+
+#calendarForm{width:100%; height:50%;margin-left: 150px; margin-top: 10px;}
+.custom_calendar_table td {
+    text-align: center;
+}
+
+.custom_calendar_table thead.cal_date th {
+    font-size: 20px;
+    
+}
+
+.custom_calendar_table thead.cal_date th button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+}
+
+.custom_calendar_table thead.cal_week th {
+    background-color: #d3d2e0;
+    color: #fff;
+    font-size: 14px;
+}
+
+.custom_calendar_table tbody td {
+    cursor: pointer;
+}
+
+.custom_calendar_table tbody td:nth-child(1) {
+    color: red;
+}
+
+.custom_calendar_table tbody td:nth-child(7) {
+    color: #288CFF;
+}
+
+.custom_calendar_table tbody td.select_day {
+    background-color: #b7d6fa;
+    color: #fff;
+}
+.hidetab{display:none; font-size: 14px; }
+.hidetab p {width: 1000px; margin-left:100px; margin-right:100px; padding: 5px 15px 10px 5px;}
+.hidetab p:hover{background-color: #eeeeee;}
+
+.hidetab1{display:none; font-size: 10px; margin-bottom: 30px;}
+.hidetab1 p { padding: 5px 15px 10px 5px; }
+.hidetab1 p:hover{background-color: #eeeeee;}
+
+.hidetab2{display:none; font-size: 14px; }
+.hidetab2 p { padding: 5px 15px 10px 5px;}
+.hidetab2 p:hover{background-color: #eeeeee;}
+
+
+
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  a {
+    color: #000;
+  }
+  
+  /* header */
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 470px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+
+
+  .main ul {
+    font-size: 15px; 
+    background-color:  #fff;
+    color: #fff;
+    width: 150px;
+    list-style-type: none;
+    margin-left: 100px;
+    padding: 0 400px;
+    
+  }
+  
+  .main li a {
+    display: block;
+    color: #000000;
+    padding: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+.folder1{
+	cursor: pointer;
+}
+.folder2{
+	cursor: pointer;
+}
+
+  /* footer */
+.footer {text-align: center; padding: 30px 50px;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li::before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb;
+    position: absolute; left: 0; top: 2px;}
+.footer li:first-child::before {width: 0;}
+.footer address {padding-top: 15px;}
+
+.search_btn {border: 0; margin-left: 450px; padding: 5px 10px 5px 10px; background-color: rgb(23, 22, 82);color: #fff;}
+.search_btn:hover {background-color: rgb(39, 38, 114); cursor: pointer;}
+.department{
+  padding: 2px;
+  /* border:1px solid rgb(226, 226, 226); */
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+.s0 {padding: 3px; padding-left: 40px; font-size: 13px; }
+.s1 {padding-left: 40px;}
